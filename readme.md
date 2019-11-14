@@ -1,6 +1,6 @@
 # Cashier Fastspring ![Beta](https://img.shields.io/badge/status-beta-red.svg)
 
-[badge_package]:        https://img.shields.io/badge/package-bgultekin/cashier--fastspring-blue.svg
+[badge_package]:        https://img.shields.io/badge/package-22digital/cashier--fastspring-blue.svg
 [badge_release]:        https://img.shields.io/packagist/v/22digital/cashier-fastspring.svg
 [badge_license]:        https://img.shields.io/github/license/22digital/cashier-fastspring.svg
 [badge_coverage]:       https://scrutinizer-ci.com/g/22digital/cashier-fastspring/badges/coverage.png?b=master
