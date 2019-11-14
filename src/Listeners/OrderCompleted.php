@@ -1,9 +1,9 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Listeners;
+namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
-use Bgultekin\CashierFastspring\Events;
-use Bgultekin\CashierFastspring\Invoice;
+use TwentyTwoDigital\CashierFastspring\Events;
+use TwentyTwoDigital\CashierFastspring\Invoice;
 
 /**
  * This class is a listener for order completed events.
@@ -30,7 +30,7 @@ class OrderCompleted extends Base
     /**
      * Handle the event.
      *
-     * @param \Bgultekin\CashierFastspring\Events\OrderCompleted $event
+     * @param \TwentyTwoDigital\CashierFastspring\Events\OrderCompleted $event
      *
      * @return void
      */

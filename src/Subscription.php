@@ -1,8 +1,8 @@
 <?php
 
-namespace Bgultekin\CashierFastspring;
+namespace TwentyTwoDigital\CashierFastspring;
 
-use Bgultekin\CashierFastspring\Fastspring\Fastspring;
+use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
@@ -46,7 +46,7 @@ class Subscription extends Model
      */
     public function periods()
     {
-        return $this->hasMany('Bgultekin\CashierFastspring\SubscriptionPeriod');
+        return $this->hasMany('TwentyTwoDigital\CashierFastspring\SubscriptionPeriod');
     }
 
     /**
@@ -54,7 +54,7 @@ class Subscription extends Model
      */
     public function activePeriod()
     {
-        return $this->hasOne('Bgultekin\CashierFastspring\SubscriptionPeriod')
+        return $this->hasOne('TwentyTwoDigital\CashierFastspring\SubscriptionPeriod')
                     ->where('start_date', '<=', Carbon::now()->format('Y-m-d H:i:s'))
                     ->where('end_date', '>=', Carbon::now()->format('Y-m-d H:i:s'))
                     ->where('type', $this->type());
@@ -65,7 +65,7 @@ class Subscription extends Model
      *
      * Note: This is not eloquent relation, it returns SubscriptionPeriod model directly.
      *
-     * @return \Bgultekin\CashierFastspring\SubscriptionPeriod
+     * @return \TwentyTwoDigital\CashierFastspring\SubscriptionPeriod
      */
     public function activePeriodOrCreate()
     {
@@ -79,7 +79,7 @@ class Subscription extends Model
     /**
      * Get active fastspring period or retrieve the active period from fastspring and create.
      *
-     * @return \Bgultekin\CashierFastspring\SubscriptionPeriod
+     * @return \TwentyTwoDigital\CashierFastspring\SubscriptionPeriod
      */
     public function activeFastspringPeriodOrCreate()
     {
@@ -105,7 +105,7 @@ class Subscription extends Model
     /**
      * Get active local period or create.
      *
-     * @return \Bgultekin\CashierFastspring\SubscriptionPeriod
+     * @return \TwentyTwoDigital\CashierFastspring\SubscriptionPeriod
      */
     public function activeLocalPeriodOrCreate()
     {
@@ -131,7 +131,7 @@ class Subscription extends Model
     /**
      * Create period with the information from fastspring.
      *
-     * @return \Bgultekin\CashierFastspring\SubscriptionPeriod
+     * @return \TwentyTwoDigital\CashierFastspring\SubscriptionPeriod
      */
     protected function createPeriodFromFastspring()
     {
@@ -162,7 +162,7 @@ class Subscription extends Model
      *
      * @throws \Exception
      *
-     * @return \Bgultekin\CashierFastspring\SubscriptionPeriod
+     * @return \TwentyTwoDigital\CashierFastspring\SubscriptionPeriod
      */
     protected function createPeriodLocally()
     {

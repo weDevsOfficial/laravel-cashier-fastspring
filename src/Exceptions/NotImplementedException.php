@@ -1,6 +1,6 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Exceptions;
+namespace TwentyTwoDigital\CashierFastspring\Exceptions;
 
 use BadMethodCallException;
 

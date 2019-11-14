@@ -1,11 +1,11 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests;
+namespace TwentyTwoDigital\CashierFastspring\Tests;
 
-use Bgultekin\CashierFastspring\Subscription;
-use Bgultekin\CashierFastspring\Tests\Traits\Database;
-use Bgultekin\CashierFastspring\Tests\Traits\Guzzle;
-use Bgultekin\CashierFastspring\Tests\Traits\Model;
+use TwentyTwoDigital\CashierFastspring\Subscription;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Database;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Guzzle;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Model;
 use Carbon\Carbon;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Database\Eloquent\Model as Eloquent;

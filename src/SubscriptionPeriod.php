@@ -1,6 +1,6 @@
 <?php
 
-namespace Bgultekin\CashierFastspring;
+namespace TwentyTwoDigital\CashierFastspring;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,6 +28,6 @@ class SubscriptionPeriod extends Model
      */
     public function subscription()
     {
-        return $this->belongsTo('Bgultekin\CashierFastspring\Subscription');
+        return $this->belongsTo('TwentyTwoDigital\CashierFastspring\Subscription');
     }
 }

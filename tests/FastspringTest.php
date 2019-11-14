@@ -1,9 +1,9 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests;
+namespace TwentyTwoDigital\CashierFastspring\Tests;
 
-use Bgultekin\CashierFastspring\Fastspring\ApiClient;
-use Bgultekin\CashierFastspring\Fastspring\Fastspring;
+use TwentyTwoDigital\CashierFastspring\Fastspring\ApiClient;
+use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;

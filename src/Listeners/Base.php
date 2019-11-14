@@ -1,6 +1,6 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Listeners;
+namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
 class Base
 {
@@ -9,7 +9,7 @@ class Base
      *
      * @param string $fastspringId
      *
-     * @return \Bgultekin\CashierFastspring\Billable
+     * @return \TwentyTwoDigital\CashierFastspring\Billable
      */
     public function getUserByFastspringId($fastspringId)
     {

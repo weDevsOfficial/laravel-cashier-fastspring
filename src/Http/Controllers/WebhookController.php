@@ -1,9 +1,9 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Http\Controllers;
+namespace TwentyTwoDigital\CashierFastspring\Http\Controllers;
 
-use Bgultekin\CashierFastspring\Events;
-use Bgultekin\CashierFastspring\Fastspring\Fastspring;
+use TwentyTwoDigital\CashierFastspring\Events;
+use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -53,11 +53,11 @@ class WebhookController extends Controller
             // prepare category event class names like OrderAny
             $explodedType = explode('.', $event['type']);
             $category = array_shift($explodedType);
-            $categoryEvent = '\Bgultekin\CashierFastspring\Events\\'.studly_case($category).'Any';
+            $categoryEvent = '\TwentyTwoDigital\CashierFastspring\Events\\'.studly_case($category).'Any';
 
             // prepare category event class names like activity
             $activity = str_replace('.', ' ', $event['type']);
-            $activityEvent = '\Bgultekin\CashierFastspring\Events\\'.studly_case($activity);
+            $activityEvent = '\TwentyTwoDigital\CashierFastspring\Events\\'.studly_case($activity);
 
             // there may be some exceptions on events
             // so if anything goes bad its ID won't be added on the successfullEvents

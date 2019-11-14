@@ -1,8 +1,8 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests;
+namespace TwentyTwoDigital\CashierFastspring\Tests;
 
-use Bgultekin\CashierFastspring\Exceptions\NotImplementedException;
+use TwentyTwoDigital\CashierFastspring\Exceptions\NotImplementedException;
 use Orchestra\Testbench\TestCase;
 
 class ExceptionsTest extends TestCase

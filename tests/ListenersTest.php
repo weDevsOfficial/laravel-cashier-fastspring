@@ -1,14 +1,14 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests;
+namespace TwentyTwoDigital\CashierFastspring\Tests;
 
-use Bgultekin\CashierFastspring\Events;
-use Bgultekin\CashierFastspring\Fastspring\Fastspring;
-use Bgultekin\CashierFastspring\Invoice;
-use Bgultekin\CashierFastspring\Listeners;
-use Bgultekin\CashierFastspring\Subscription;
-use Bgultekin\CashierFastspring\Tests\Traits\Database;
-use Bgultekin\CashierFastspring\Tests\Traits\Model;
+use TwentyTwoDigital\CashierFastspring\Events;
+use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
+use TwentyTwoDigital\CashierFastspring\Invoice;
+use TwentyTwoDigital\CashierFastspring\Listeners;
+use TwentyTwoDigital\CashierFastspring\Subscription;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Database;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Model;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Orchestra\Testbench\TestCase;
 

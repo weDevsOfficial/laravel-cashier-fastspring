@@ -1,6 +1,6 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Events;
+namespace TwentyTwoDigital\CashierFastspring\Events;
 
 class AccountAny extends Base
 {

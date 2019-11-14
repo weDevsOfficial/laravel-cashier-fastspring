@@ -1,9 +1,9 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests;
+namespace TwentyTwoDigital\CashierFastspring\Tests;
 
-use Bgultekin\CashierFastspring\Events;
-use Bgultekin\CashierFastspring\Tests\Fixtures\WebhookControllerTestStub;
+use TwentyTwoDigital\CashierFastspring\Events;
+use TwentyTwoDigital\CashierFastspring\Tests\Fixtures\WebhookControllerTestStub;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
@@ -182,11 +182,11 @@ class WebhookControllerTest extends TestCase
             // prepare category event class names like OrderAny
             $explodedType = explode('.', $mockEvent['type']);
             $category = array_shift($explodedType);
-            $categoryEvent = 'Bgultekin\CashierFastspring\Events\\'.studly_case($category).'Any';
+            $categoryEvent = 'TwentyTwoDigital\CashierFastspring\Events\\'.studly_case($category).'Any';
 
             // prepare category event class names like activity
             $activity = str_replace('.', ' ', $mockEvent['type']);
-            $activityEvent = 'Bgultekin\CashierFastspring\Events\\'.studly_case($activity);
+            $activityEvent = 'TwentyTwoDigital\CashierFastspring\Events\\'.studly_case($activity);
 
             $listenEvents = [
                 Events\Any::class,

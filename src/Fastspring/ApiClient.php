@@ -1,6 +1,6 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Fastspring;
+namespace TwentyTwoDigital\CashierFastspring\Fastspring;
 
 use GuzzleHttp\Client;
 

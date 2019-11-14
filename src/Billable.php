@@ -1,9 +1,9 @@
 <?php
 
-namespace Bgultekin\CashierFastspring;
+namespace TwentyTwoDigital\CashierFastspring;
 
-use Bgultekin\CashierFastspring\Exceptions\NotImplementedException;
-use Bgultekin\CashierFastspring\Fastspring\Fastspring;
+use TwentyTwoDigital\CashierFastspring\Exceptions\NotImplementedException;
+use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 use Exception;
 
 trait Billable
@@ -42,7 +42,7 @@ trait Billable
      * @param string $subscription
      * @param string $plan
      *
-     * @return \Bgultekin\CashierFastspring\SubscriptionBuilder
+     * @return \TwentyTwoDigital\CashierFastspring\SubscriptionBuilder
      */
     public function newSubscription($subscription, $plan)
     {
@@ -98,7 +98,7 @@ trait Billable
      *
      * @param string $subscription
      *
-     * @return \Bgultekin\CashierFastspring\Subscription|null
+     * @return \TwentyTwoDigital\CashierFastspring\Subscription|null
      */
     public function subscription($subscription = 'default')
     {

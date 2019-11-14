@@ -1,6 +1,6 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests\Traits;
+namespace TwentyTwoDigital\CashierFastspring\Tests\Traits;
 
 use Illuminate\Support\Facades\Schema;
 

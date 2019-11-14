@@ -1,10 +1,10 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests;
+namespace TwentyTwoDigital\CashierFastspring\Tests;
 
-use Bgultekin\CashierFastspring\SubscriptionPeriod;
-use Bgultekin\CashierFastspring\Tests\Traits\Database;
-use Bgultekin\CashierFastspring\Tests\Traits\Model;
+use TwentyTwoDigital\CashierFastspring\SubscriptionPeriod;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Database;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Model;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Orchestra\Testbench\TestCase;
 

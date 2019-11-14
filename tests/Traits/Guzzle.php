@@ -1,8 +1,8 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests\Traits;
+namespace TwentyTwoDigital\CashierFastspring\Tests\Traits;
 
-use Bgultekin\CashierFastspring\Fastspring\Fastspring;
+use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 

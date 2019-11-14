@@ -1,10 +1,10 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Listeners;
+namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
-use Bgultekin\CashierFastspring\Events;
-use Bgultekin\CashierFastspring\Invoice;
-use Bgultekin\CashierFastspring\Subscription;
+use TwentyTwoDigital\CashierFastspring\Events;
+use TwentyTwoDigital\CashierFastspring\Invoice;
+use TwentyTwoDigital\CashierFastspring\Subscription;
 use Carbon\Carbon;
 
 /**
@@ -29,7 +29,7 @@ class SubscriptionChargeCompleted extends Base
     /**
      * Handle the event.
      *
-     * @param \Bgultekin\CashierFastspring\Events\SubscriptionChargeCompleted $event
+     * @param \TwentyTwoDigital\CashierFastspring\Events\SubscriptionChargeCompleted $event
      *
      * @return void
      */

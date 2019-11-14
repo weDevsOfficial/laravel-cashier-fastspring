@@ -1,13 +1,13 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests;
+namespace TwentyTwoDigital\CashierFastspring\Tests;
 
-use Bgultekin\CashierFastspring\Billable;
-use Bgultekin\CashierFastspring\Exceptions\NotImplementedException;
-use Bgultekin\CashierFastspring\SubscriptionBuilder;
-use Bgultekin\CashierFastspring\Tests\Traits\Database;
-use Bgultekin\CashierFastspring\Tests\Traits\Guzzle;
-use Bgultekin\CashierFastspring\Tests\Traits\Model;
+use TwentyTwoDigital\CashierFastspring\Billable;
+use TwentyTwoDigital\CashierFastspring\Exceptions\NotImplementedException;
+use TwentyTwoDigital\CashierFastspring\SubscriptionBuilder;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Database;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Guzzle;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Model;
 use Exception;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Response;

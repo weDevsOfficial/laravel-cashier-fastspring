@@ -1,8 +1,8 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests\Traits;
+namespace TwentyTwoDigital\CashierFastspring\Tests\Traits;
 
-use Bgultekin\CashierFastspring\Tests\Fixtures\User;
+use TwentyTwoDigital\CashierFastspring\Tests\Fixtures\User;
 
 trait Model
 {

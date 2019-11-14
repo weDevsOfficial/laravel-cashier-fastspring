@@ -1,6 +1,6 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Fastspring;
+namespace TwentyTwoDigital\CashierFastspring\Fastspring;
 
 /**
  * This class helps to reach Fastspring class with laravel config and static methods.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bgultekin\CashierFastspring;
+namespace TwentyTwoDigital\CashierFastspring;
 
 use Illuminate\Database\Eloquent\Model;
 

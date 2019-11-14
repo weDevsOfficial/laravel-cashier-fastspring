@@ -1,8 +1,8 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests\Fixtures;
+namespace TwentyTwoDigital\CashierFastspring\Tests\Fixtures;
 
-use Bgultekin\CashierFastspring\Http\Controllers\WebhookController;
+use TwentyTwoDigital\CashierFastspring\Http\Controllers\WebhookController;
 
 class WebhookControllerTestStub extends WebhookController
 {

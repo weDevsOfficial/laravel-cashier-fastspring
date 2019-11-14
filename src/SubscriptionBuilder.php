@@ -1,8 +1,8 @@
 <?php
 
-namespace Bgultekin\CashierFastspring;
+namespace TwentyTwoDigital\CashierFastspring;
 
-use Bgultekin\CashierFastspring\Fastspring\Fastspring;
+use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 use GuzzleHttp\Exception\ClientException;
 
 class SubscriptionBuilder

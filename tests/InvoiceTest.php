@@ -1,11 +1,11 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests;
+namespace TwentyTwoDigital\CashierFastspring\Tests;
 
-use Bgultekin\CashierFastspring\Subscription;
-use Bgultekin\CashierFastspring\Tests\Fixtures\User;
-use Bgultekin\CashierFastspring\Tests\Traits\Database;
-use Bgultekin\CashierFastspring\Tests\Traits\Model;
+use TwentyTwoDigital\CashierFastspring\Subscription;
+use TwentyTwoDigital\CashierFastspring\Tests\Fixtures\User;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Database;
+use TwentyTwoDigital\CashierFastspring\Tests\Traits\Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Orchestra\Testbench\TestCase;

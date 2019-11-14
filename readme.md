@@ -68,7 +68,7 @@ After requiring package, add service provider of this package to providers in `c
 ```php
 'providers' => array(
     // ...
-    Bgultekin\CashierFastspring\CashierServiceProvider::class,
+    TwentyTwoDigital\CashierFastspring\CashierServiceProvider::class,
 )
 ```
 
@@ -121,7 +121,7 @@ Fastspring can notify your application of a variety of events via webhooks. To h
 ```php
 Route::post(
     'fastspring/webhook',
-    '\Bgultekin\CashierFastspring\Http\Controllers\WebhookController@handleWebhook'
+    '\TwentyTwoDigital\CashierFastspring\Http\Controllers\WebhookController@handleWebhook'
 )->name('fastspringWebhook');
 ```
 
@@ -150,23 +150,23 @@ In Cashier Fastspring, every webhook request fires related events. You can regis
 ```php
 protected $listen = [
     // some others
-    'Bgultekin\CashierFastspring\Events\SubscriptionCanceled' => [
-        'Bgultekin\CashierFastspring\Listeners\SubscriptionStateChanged'
+    'TwentyTwoDigital\CashierFastspring\Events\SubscriptionCanceled' => [
+        'TwentyTwoDigital\CashierFastspring\Listeners\SubscriptionStateChanged'
     ],
-    'Bgultekin\CashierFastspring\Events\SubscriptionDeactivated' => [
-        'Bgultekin\CashierFastspring\Listeners\SubscriptionDeactivated'
+    'TwentyTwoDigital\CashierFastspring\Events\SubscriptionDeactivated' => [
+        'TwentyTwoDigital\CashierFastspring\Listeners\SubscriptionDeactivated'
     ],
-    'Bgultekin\CashierFastspring\Events\SubscriptionPaymentOverdue' => [
-        'Bgultekin\CashierFastspring\Listeners\SubscriptionStateChanged'
+    'TwentyTwoDigital\CashierFastspring\Events\SubscriptionPaymentOverdue' => [
+        'TwentyTwoDigital\CashierFastspring\Listeners\SubscriptionStateChanged'
     ],
-    'Bgultekin\CashierFastspring\Events\OrderCompleted' => [
-        'Bgultekin\CashierFastspring\Listeners\OrderCompleted'
+    'TwentyTwoDigital\CashierFastspring\Events\OrderCompleted' => [
+        'TwentyTwoDigital\CashierFastspring\Listeners\OrderCompleted'
     ],
-    'Bgultekin\CashierFastspring\Events\SubscriptionActivated' => [
-        'Bgultekin\CashierFastspring\Listeners\SubscriptionActivated'
+    'TwentyTwoDigital\CashierFastspring\Events\SubscriptionActivated' => [
+        'TwentyTwoDigital\CashierFastspring\Listeners\SubscriptionActivated'
     ],
-    'Bgultekin\CashierFastspring\Events\SubscriptionChargeCompleted' => [
-        'Bgultekin\CashierFastspring\Listeners\SubscriptionChargeCompleted'
+    'TwentyTwoDigital\CashierFastspring\Events\SubscriptionChargeCompleted' => [
+        'TwentyTwoDigital\CashierFastspring\Listeners\SubscriptionChargeCompleted'
     ]
 ];
 ```
@@ -339,39 +339,39 @@ $redirectURI = $user->accountManagementURI();
 
 Cashier Fastspring package provides an easy way to handle webhooks. It fires related events for each webhook request and provides request payload data as a parameter. It also handles message security if you set `FASTSPRING_HMAC_SECRET`. You can find sample listeners in `src/Listeners` folder.
 
-Beside webhook specific events, there are also category and any events. For instance, if you want to listen all webhook requests, you can register your listener to `Bgultekin\CashierFastspring\Events\Any` event. Also, if you want to listen all subscription related webhook requests, you can use `Bgultekin\CashierFastspring\Events\SubscriptionAny` event.
+Beside webhook specific events, there are also category and any events. For instance, if you want to listen all webhook requests, you can register your listener to `TwentyTwoDigital\CashierFastspring\Events\Any` event. Also, if you want to listen all subscription related webhook requests, you can use `TwentyTwoDigital\CashierFastspring\Events\SubscriptionAny` event.
 
 You can see relation between package events and webhook requests at the table below.
 
 | Webhook Request    | Fired Cashier Fastspring Events |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| account.created | `Bgultekin\CashierFastspring\Events\AccountCreated`, `Bgultekin\CashierFastspring\Events\AccountAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| fulfillment.failed | `Bgultekin\CashierFastspring\Events\FulfillmentFailed`, `Bgultekin\CashierFastspring\Events\FulfillmentAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| mailingListEntry.removed | `Bgultekin\CashierFastspring\Events\MailingListEntryRemoved`, `Bgultekin\CashierFastspring\Events\MailingListEntryAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| mailingListEntry.updated | `Bgultekin\CashierFastspring\Events\MailingListEntryUpdated`, `Bgultekin\CashierFastspring\Events\MailingListEntryAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| order.approval.pending | `Bgultekin\CashierFastspring\Events\OrderApprovalPending`, `Bgultekin\CashierFastspring\Events\OrderAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| order.canceled | `Bgultekin\CashierFastspring\Events\OrderCanceled`, `Bgultekin\CashierFastspring\Events\OrderAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| order.payment.pending | `Bgultekin\CashierFastspring\Events\OrderPaymentPending`, `Bgultekin\CashierFastspring\Events\OrderAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| order.completed | `Bgultekin\CashierFastspring\Events\OrderCompleted`, `Bgultekin\CashierFastspring\Events\OrderAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| order.failed | `Bgultekin\CashierFastspring\Events\OrderFailed`, `Bgultekin\CashierFastspring\Events\OrderAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| payoutEntry.created | `Bgultekin\CashierFastspring\Events\PayoutEntryCreated`, `Bgultekin\CashierFastspring\Events\PayoutEntryAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| return.created | `Bgultekin\CashierFastspring\Events\ReturnCreated`, `Bgultekin\CashierFastspring\Events\ReturnAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| subscription.activated | `Bgultekin\CashierFastspring\Events\SubscriptionActivated`, `Bgultekin\CashierFastspring\Events\SubscriptionAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| subscription.canceled | `Bgultekin\CashierFastspring\Events\SubscriptionCanceled`, `Bgultekin\CashierFastspring\Events\SubscriptionAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| subscription.charge.completed | `Bgultekin\CashierFastspring\Events\SubscriptionChargeCompleted`, `Bgultekin\CashierFastspring\Events\SubscriptionAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| subscription.charge.failed | `Bgultekin\CashierFastspring\Events\SubscriptionChargeFailed`, `Bgultekin\CashierFastspring\Events\SubscriptionAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| subscription.deactivated | `Bgultekin\CashierFastspring\Events\SubscriptionDeactivated`, `Bgultekin\CashierFastspring\Events\SubscriptionAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| subscription.payment.overdue | `Bgultekin\CashierFastspring\Events\SubscriptionPaymentOverdue`, `Bgultekin\CashierFastspring\Events\SubscriptionAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| subscription.payment.reminder | `Bgultekin\CashierFastspring\Events\SubscriptionPaymentReminder`, `Bgultekin\CashierFastspring\Events\SubscriptionAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| subscription.trial.reminder | `Bgultekin\CashierFastspring\Events\SubscriptionTrialReminder`, `Bgultekin\CashierFastspring\Events\SubscriptionAny`, `Bgultekin\CashierFastspring\Events\Any` |
-| subscription.updated | `Bgultekin\CashierFastspring\Events\SubscriptionUpdated`, `Bgultekin\CashierFastspring\Events\SubscriptionAny`, `Bgultekin\CashierFastspring\Events\Any` |
+| account.created | `TwentyTwoDigital\CashierFastspring\Events\AccountCreated`, `TwentyTwoDigital\CashierFastspring\Events\AccountAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| fulfillment.failed | `TwentyTwoDigital\CashierFastspring\Events\FulfillmentFailed`, `TwentyTwoDigital\CashierFastspring\Events\FulfillmentAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| mailingListEntry.removed | `TwentyTwoDigital\CashierFastspring\Events\MailingListEntryRemoved`, `TwentyTwoDigital\CashierFastspring\Events\MailingListEntryAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| mailingListEntry.updated | `TwentyTwoDigital\CashierFastspring\Events\MailingListEntryUpdated`, `TwentyTwoDigital\CashierFastspring\Events\MailingListEntryAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| order.approval.pending | `TwentyTwoDigital\CashierFastspring\Events\OrderApprovalPending`, `TwentyTwoDigital\CashierFastspring\Events\OrderAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| order.canceled | `TwentyTwoDigital\CashierFastspring\Events\OrderCanceled`, `TwentyTwoDigital\CashierFastspring\Events\OrderAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| order.payment.pending | `TwentyTwoDigital\CashierFastspring\Events\OrderPaymentPending`, `TwentyTwoDigital\CashierFastspring\Events\OrderAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| order.completed | `TwentyTwoDigital\CashierFastspring\Events\OrderCompleted`, `TwentyTwoDigital\CashierFastspring\Events\OrderAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| order.failed | `TwentyTwoDigital\CashierFastspring\Events\OrderFailed`, `TwentyTwoDigital\CashierFastspring\Events\OrderAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| payoutEntry.created | `TwentyTwoDigital\CashierFastspring\Events\PayoutEntryCreated`, `TwentyTwoDigital\CashierFastspring\Events\PayoutEntryAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| return.created | `TwentyTwoDigital\CashierFastspring\Events\ReturnCreated`, `TwentyTwoDigital\CashierFastspring\Events\ReturnAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| subscription.activated | `TwentyTwoDigital\CashierFastspring\Events\SubscriptionActivated`, `TwentyTwoDigital\CashierFastspring\Events\SubscriptionAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| subscription.canceled | `TwentyTwoDigital\CashierFastspring\Events\SubscriptionCanceled`, `TwentyTwoDigital\CashierFastspring\Events\SubscriptionAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| subscription.charge.completed | `TwentyTwoDigital\CashierFastspring\Events\SubscriptionChargeCompleted`, `TwentyTwoDigital\CashierFastspring\Events\SubscriptionAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| subscription.charge.failed | `TwentyTwoDigital\CashierFastspring\Events\SubscriptionChargeFailed`, `TwentyTwoDigital\CashierFastspring\Events\SubscriptionAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| subscription.deactivated | `TwentyTwoDigital\CashierFastspring\Events\SubscriptionDeactivated`, `TwentyTwoDigital\CashierFastspring\Events\SubscriptionAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| subscription.payment.overdue | `TwentyTwoDigital\CashierFastspring\Events\SubscriptionPaymentOverdue`, `TwentyTwoDigital\CashierFastspring\Events\SubscriptionAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| subscription.payment.reminder | `TwentyTwoDigital\CashierFastspring\Events\SubscriptionPaymentReminder`, `TwentyTwoDigital\CashierFastspring\Events\SubscriptionAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| subscription.trial.reminder | `TwentyTwoDigital\CashierFastspring\Events\SubscriptionTrialReminder`, `TwentyTwoDigital\CashierFastspring\Events\SubscriptionAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
+| subscription.updated | `TwentyTwoDigital\CashierFastspring\Events\SubscriptionUpdated`, `TwentyTwoDigital\CashierFastspring\Events\SubscriptionAny`, `TwentyTwoDigital\CashierFastspring\Events\Any` |
 
 To listen an event, you can register listeners in `app/providers/EventServiceProvider.php`.
 
 ```php
 protected $listen = [
     // some others
-    'Bgultekin\CashierFastspring\Events\SubscriptionCanceled' => [
+    'TwentyTwoDigital\CashierFastspring\Events\SubscriptionCanceled' => [
         'Your\Lovely\Listener'
     ]
 ];

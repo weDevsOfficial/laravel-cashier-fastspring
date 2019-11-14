@@ -1,8 +1,8 @@
 <?php
 
-namespace Bgultekin\CashierFastspring\Tests;
+namespace TwentyTwoDigital\CashierFastspring\Tests;
 
-use Bgultekin\CashierFastspring\CashierServiceProvider;
+use TwentyTwoDigital\CashierFastspring\CashierServiceProvider;
 use Orchestra\Testbench\TestCase;
 
 class ServiceProviderTest extends TestCase
