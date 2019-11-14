@@ -1,16 +1,20 @@
 {
-    "name": "bgultekin/cashier-fastspring",
+    "name": "22digital/cashier-fastspring",
     "description": "Cashier Fastspring is a cashier-like laravel package which provides an interface to Fastspring subscription and payment services.",
     "keywords": ["laravel", "fastspring", "billing", "cashier"],
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/bgultekin/cashier-fastspring/issues",
-        "source": "https://github.com/bgultekin/cashier-fastspring"
+        "issues": "https://github.com/22digital/cashier-fastspring/issues",
+        "source": "https://github.com/22digital/cashier-fastspring"
     },
     "authors": [
         {
             "name": "Bilal Gultekin",
             "email": "bilal@gultekin.me"
+        },
+        {
+            "name": "Justin Hartman",
+            "email": "justin@hartman.me"
         }
     ],
     "require": {
@@ -31,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Bgultekin\\CashierFastspring\\": "src/"
+            "TwentyTwoDigital\\CashierFastspring\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Bgultekin\\CashierFastspring\\Tests\\": "tests/"
+            "TwentyTwoDigital\\CashierFastspring\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -45,7 +49,7 @@
         },
         "laravel": {
             "providers": [
-                "Bgultekin\\CashierFastspring\\CashierServiceProvider"
+                "TwentyTwoDigital\\CashierFastspring\\CashierServiceProvider"
             ]
         }
     },
