@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Str;
 use Log;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -55,11 +56,11 @@ class WebhookController extends Controller
             // prepare category event class names like OrderAny
             $explodedType = explode('.', $event['type']);
             $category = array_shift($explodedType);
-            $categoryEvent = '\TwentyTwoDigital\CashierFastspring\Events\\'.studly_case($category).'Any';
+            $categoryEvent = '\TwentyTwoDigital\CashierFastspring\Events\\'.Str::studly($category).'Any';
 
             // prepare category event class names like activity
             $activity = str_replace('.', ' ', $event['type']);
-            $activityEvent = '\TwentyTwoDigital\CashierFastspring\Events\\'.studly_case($activity);
+            $activityEvent = '\TwentyTwoDigital\CashierFastspring\Events\\'.Str::studly($activity);
 
             // there may be some exceptions on events
             // so if anything goes bad its ID won't be added on the successfullEvents
