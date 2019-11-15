@@ -6,6 +6,7 @@ use TwentyTwoDigital\CashierFastspring\Events;
 use TwentyTwoDigital\CashierFastspring\Invoice;
 use TwentyTwoDigital\CashierFastspring\Subscription;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 /**
  * This class is a listener for subscription charge completed events.
@@ -55,7 +56,7 @@ class SubscriptionChargeCompleted extends Base
         $periodEndDate = $nextDate->subDay()->format('Y-m-d H:i:s');
 
         // yeap, weird way
-        $methodName = 'sub'.title_case($subscription->interval_unit).'sNoOverflow';
+        $methodName = 'sub'.Str::title($subscription->interval_unit).'sNoOverflow';
         $periodStartDate = $nextDate->$methodName($subscription->interval_length)->addDay()->format('Y-m-d H:i:s');
 
         // fill the model
