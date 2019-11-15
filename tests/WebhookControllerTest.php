@@ -12,6 +12,11 @@ use Orchestra\Testbench\TestCase;
 
 class WebhookControllerTest extends TestCase
 {
+    /**
+     * Class constructor.
+     *
+     * @return void
+     */
     public static function setUpBeforeClass()
     {
         if (file_exists(__DIR__.'/.env')) {
@@ -20,6 +25,11 @@ class WebhookControllerTest extends TestCase
         }
     }
 
+    /**
+     * Test HMAC.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function testHmac()
     {
         $hmacSecret = 'dontlookiamsecret';
@@ -50,6 +60,12 @@ class WebhookControllerTest extends TestCase
         $this->assertEquals($response->getStatusCode(), 202);
     }
 
+    /**
+     * Test HMAC failed.
+     *
+     * @throws \Exception $exception
+     * @return \Illuminate\Http\Response
+     */
     public function testHmacFailed()
     {
         Config::set('services.fastspring.hmac_secret', 'dontlookiamsecret');
@@ -107,6 +123,11 @@ class WebhookControllerTest extends TestCase
         $this->assertEquals($content, "id-1\nid-2");
     }
 
+    /**
+     * Test multiple webhook events by failing one.
+     *
+     * @return void
+     */
     public function testMultipleWebhookEventsByFailingOne()
     {
         $webhookRequestPayload = [
@@ -145,6 +166,11 @@ class WebhookControllerTest extends TestCase
         $this->assertEquals($content, 'id-1');
     }
 
+    /**
+     * Webhook test events.
+     *
+     * @return \TwentyTwoDigital\CashierFastspring\Tests\WebhookControllerTest\sendRequestAndListenEvents
+     */
     public function testWebhooksEvents()
     {
         $webhookEvents = [
@@ -199,6 +225,14 @@ class WebhookControllerTest extends TestCase
         }
     }
 
+    /**
+     * Sends request and listen for events.
+     *
+     * @param array $mockEvent    The mock event array
+     * @param array $listenEvents The listen events
+     *
+     * @return \Illuminate\Support\Facades\Event
+     */
     protected function sendRequestAndListenEvents($mockEvent, $listenEvents)
     {
         Event::fake();
@@ -215,9 +249,12 @@ class WebhookControllerTest extends TestCase
 
         foreach ($listenEvents as $listenEvent) {
             // Assert
-            Event::assertDispatched($listenEvent, function ($event) use ($mockEvent) {
-                return (int) $event->id === (int) $mockEvent['id'];
-            });
+            Event::assertDispatched(
+                $listenEvent,
+                function ($event) use ($mockEvent) {
+                    return (int) $event->id === (int) $mockEvent['id'];
+                }
+            );
         }
     }
 }

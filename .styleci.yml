@@ -1,0 +1,13 @@
+preset: laravel
+risky: false
+disabled:
+  - single_class_element_per_statement
+finder:
+    exclude:
+      - modules
+      - node_modules
+      - storage
+      - vendor
+      - docs
+    name: "*.php"
+    not-name: "*.blade.php"

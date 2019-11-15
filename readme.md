@@ -1,23 +1,25 @@
-# Cashier Fastspring ![Beta](https://img.shields.io/badge/status-beta-red.svg)
+# Laravel Cashier Fastspring ![Beta](https://img.shields.io/badge/status-beta-red.svg)
 
-[badge_package]:        https://img.shields.io/badge/package-22digital/cashier--fastspring-blue.svg
-[badge_release]:        https://img.shields.io/packagist/v/22digital/cashier-fastspring.svg
-[badge_license]:        https://img.shields.io/github/license/22digital/cashier-fastspring.svg
-[badge_coverage]:       https://scrutinizer-ci.com/g/22digital/cashier-fastspring/badges/coverage.png?b=master
-[badge_build]:          https://scrutinizer-ci.com/g/22digital/cashier-fastspring/badges/build.png?b=master
+[badge_packagist]:      https://img.shields.io/badge/packagist-22digital/laravel--cashier--fastspring-yellow.svg
+[badge_release]:        https://img.shields.io/packagist/v/22digital/laravel-cashier-fastspring.svg
+[badge_license]:        https://img.shields.io/github/license/22digital/laravel-cashier-fastspring.svg
+[badge_coverage]:       https://scrutinizer-ci.com/g/22digital/laravel-cashier-fastspring/badges/coverage.png?b=master
+[badge_build]:          https://scrutinizer-ci.com/g/22digital/laravel-cashier-fastspring/badges/build.png?b=master
 [badge_laravel]:        https://img.shields.io/badge/Laravel-5.x-orange.svg
-[badge_styleci]:         https://github.styleci.io/repos/141720975/shield?branch=master
+[badge_styleci]:        https://github.styleci.io/repos/219102431/shield?branch=master
+[badge_travis]:         https://travis-ci.org/22digital/laravel-cashier-fastspring.svg?branch=master
 
-[link-contributors]:    https://github.com/22digital/cashier-fastspring/graphs/contributors
-[link-packagist]:       https://packagist.org/packages/22digital/cashier-fastspring
-[link-build]:           https://scrutinizer-ci.com/g/22digital/cashier-fastspring/build-status/master
-[link-coverage]:        https://scrutinizer-ci.com/g/22digital/cashier-fastspring/?branch=master
-[link-license]:         https://github.com/22digital/cashier-fastspring/blob/master/LICENSE.md
+[link-contributors]:    https://github.com/22digital/laravel-cashier-fastspring/graphs/contributors
+[link-packagist]:       https://packagist.org/packages/22digital/laravel-cashier-fastspring
+[link-build]:           https://scrutinizer-ci.com/g/22digital/laravel-cashier-fastspring/build-status/master
+[link-coverage]:        https://scrutinizer-ci.com/g/22digital/laravel-cashier-fastspring/?branch=master
+[link-license]:         https://github.com/22digital/laravel-cashier-fastspring/blob/master/LICENSE
 [link-laravel]:         https://laravel.com/
-[link-styleci]:         https://github.styleci.io/repos/141720975
+[link-styleci]:         https://github.styleci.io/repos/219102431
+[link-travis]:          https://travis-ci.org/22digital/laravel-cashier-fastspring
 
 
-[![Packagist][badge_package]][link-packagist]
+[![Packagist][badge_packagist]][link-packagist]
 [![Build Status][badge_build]][link-build]
 [![Coverage Status][badge_coverage]][link-coverage]
 [![Style CI][badge_styleci]][link-styleci]

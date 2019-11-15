@@ -226,6 +226,10 @@ class SubscriptionTest extends TestCase
             'interval_unit' => 'martian-second',
         ]);
 
+        if ($activePeriod) {
+            return $activePeriod;
+        }
+
         $activePeriod = $subscription->activePeriodOrCreate();
     }
 

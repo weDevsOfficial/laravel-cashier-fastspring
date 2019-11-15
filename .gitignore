@@ -4,6 +4,9 @@ composer.phar
 composer.lock
 .DS_Store
 Thumbs.db
+# local dev ignores
 coverage
 .test
 tests.md
+patch-changes.md
+docs/
