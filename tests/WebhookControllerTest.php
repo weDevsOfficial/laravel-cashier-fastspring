@@ -182,11 +182,11 @@ class WebhookControllerTest extends TestCase
             // prepare category event class names like OrderAny
             $explodedType = explode('.', $mockEvent['type']);
             $category = array_shift($explodedType);
-            $categoryEvent = 'TwentyTwoDigital\CashierFastspring\Events\\'.studly_case($category).'Any';
+            $categoryEvent = 'TwentyTwoDigital\CashierFastspring\Events\\'.studly($category).'Any';
 
             // prepare category event class names like activity
             $activity = str_replace('.', ' ', $mockEvent['type']);
-            $activityEvent = 'TwentyTwoDigital\CashierFastspring\Events\\'.studly_case($activity);
+            $activityEvent = 'TwentyTwoDigital\CashierFastspring\Events\\'.studly($activity);
 
             $listenEvents = [
                 Events\Any::class,
