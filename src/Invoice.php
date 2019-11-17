@@ -1,9 +1,22 @@
 <?php
-
+/**
+ * This file implements Invoice.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * This class describes an invoice.
+ *
+ * {@inheritDoc}
+ */
 class Invoice extends Model
 {
     /**
@@ -27,6 +40,8 @@ class Invoice extends Model
 
     /**
      * Get the user that owns the invoice.
+     *
+     * @return self
      */
     public function user()
     {

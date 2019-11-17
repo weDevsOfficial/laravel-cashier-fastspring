@@ -1,9 +1,20 @@
 <?php
-
+/**
+ * This file implements Laravel Cashier Service Provider.
+ *
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * This class describes the Laravel Cashier Service Provider.
+ *
+ * {@inheritDoc}
+ */
 class CashierServiceProvider extends ServiceProvider
 {
     /**

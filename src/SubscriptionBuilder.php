@@ -1,10 +1,23 @@
 <?php
-
+/**
+ * This file implements Subscription Builder.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring;
 
 use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 use GuzzleHttp\Exception\ClientException;
 
+/**
+ * Front-end to create subscription objects step by step.
+ *
+ * {@inheritDoc}
+ */
 class SubscriptionBuilder
 {
     /**
@@ -45,9 +58,9 @@ class SubscriptionBuilder
     /**
      * Create a new subscription builder instance.
      *
-     * @param mixed  $owner
-     * @param string $name
-     * @param string $plan
+     * @param mixed  $owner Owner details
+     * @param string $name  Plan name
+     * @param string $plan  Plan
      *
      * @return void
      */
@@ -61,7 +74,7 @@ class SubscriptionBuilder
     /**
      * Specify the quantity of the subscription.
      *
-     * @param int $quantity
+     * @param int $quantity Number of items
      *
      * @return $this
      */
@@ -75,7 +88,7 @@ class SubscriptionBuilder
     /**
      * The coupon to apply to a new subscription.
      *
-     * @param string $coupon
+     * @param string $coupon Coupon string to use
      *
      * @return $this
      */
@@ -89,7 +102,7 @@ class SubscriptionBuilder
     /**
      * Create a new Fastspring session and return it as object.
      *
-     * @return object
+     * @return \TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring
      */
     public function create()
     {
@@ -100,6 +113,13 @@ class SubscriptionBuilder
 
     /**
      * Get the fastspring id for the current user.
+     *
+     * If an email key exists in error node then we assume this error is related
+     * to the fact there is already an account with this email in
+     * fastspring-side error message. It will also returns account link but
+     * messages are easily changable so we can't rely on that.
+     *
+     * @throws Exception
      *
      * @return int|string
      */
@@ -113,11 +133,6 @@ class SubscriptionBuilder
                 $response = $e->getResponse();
                 $content = json_decode($response->getBody()->getContents());
 
-                // if email key exists in error node
-                // then we assume this error is related to that
-                // there is already an account with this email in fastspring-side
-                // error message also returns account link but messages are easily
-                // changable so we can't rely on that
                 if (isset($content->error->email)) {
                     $response = Fastspring::getAccounts(['email' => $this->owner->email]);
 
@@ -129,10 +144,6 @@ class SubscriptionBuilder
                         $this->owner->save();
                     }
                 } else {
-                    // if we are not sure about the exception
-                    // then throw it again
-                    // if returns it is yours, if doesn't it has never been yours
-                    // (the previous line is a bad joke don't mind)
                     throw $e; // @codeCoverageIgnore
                 }
             }
@@ -143,6 +154,8 @@ class SubscriptionBuilder
 
     /**
      * Build the payload for session creation.
+     *
+     * @param int $fastspringId The fastspring identifier
      *
      * @return array
      */

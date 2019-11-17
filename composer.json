@@ -44,9 +44,6 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "8.0-dev"
-        },
         "laravel": {
             "providers": [
                 "TwentyTwoDigital\\CashierFastspring\\CashierServiceProvider"

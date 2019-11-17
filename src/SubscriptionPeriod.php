@@ -1,9 +1,22 @@
 <?php
-
+/**
+ * This file implements Subscription Period.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * This class describes a subscription period.
+ *
+ * {@inheritDoc}
+ */
 class SubscriptionPeriod extends Model
 {
     /**
@@ -25,6 +38,8 @@ class SubscriptionPeriod extends Model
 
     /**
      * Get the user that owns the subscription.
+     *
+     * @return object Subscription object.
      */
     public function subscription()
     {

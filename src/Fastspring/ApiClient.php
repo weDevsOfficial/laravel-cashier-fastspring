@@ -1,17 +1,12 @@
 <?php
-
-namespace TwentyTwoDigital\CashierFastspring\Fastspring;
-
-use GuzzleHttp\Client;
-
 /**
  * ApiClient is a simple class for sending requests to FastSpring API.
  *
- * This class aims to handle some APIs of Fastspring if you think to develop
- * and add some other features please consider not doing it with one class.
+ * This class aims to handle some APIs of Fastspring if you think to develop and
+ * add some other features please consider not doing it with one class.
  *
- * Note: This class does not cover whole FastSpring API, it covers just a couple of things
- * in FastSpring API like accounts and sessions.
+ * Note: This class does not cover whole FastSpring API, it covers just a couple
+ * of things in FastSpring API like accounts and sessions.
  *
  * Example usage:
  * ```php
@@ -19,11 +14,20 @@ use GuzzleHttp\Client;
  * $accounts = $fastspring->getAccounts();
  * ```
  *
- * @author   Bilal Gultekin <bilal@gultekin.me>
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @version   v0.1:
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @see       https://docs.fastspring.com/integrating-with-fastspring/fastspring-api
+ */
+namespace TwentyTwoDigital\CashierFastspring\Fastspring;
+
+use GuzzleHttp\Client;
+
+/**
+ * This class describes an api client.
  *
- * @version  0.1
- *
- * @see      https://docs.fastspring.com/integrating-with-fastspring/fastspring-api
+ * {@inheritDoc}
  */
 class ApiClient
 {
@@ -66,8 +70,8 @@ class ApiClient
     /**
      * Create a new Fastspring API interface instance.
      *
-     * @param string $username
-     * @param string $password
+     * @param string $username Fastspring API username
+     * @param string $password Fastspring API password
      *
      * @return void
      */
@@ -84,7 +88,7 @@ class ApiClient
     /**
      * Send a request to Fastspring API with given parameters.
      *
-     * @param string $method         Method of HTTP request like PUT, GET, POST etc.
+     * @param string $method         Method of HTTP request like PUT, GET, POST
      * @param string $path           Path of API
      * @param string $query          Query parameters
      * @param string $formParameters Form parameters
@@ -170,14 +174,12 @@ class ApiClient
         return json_decode($message);
     }
 
-    // API methods
-
     /**
      * Create account.
      *
      * @param array $account Account details
      *
-     * @see https://docs.fastspring.com/integrating-with-fastspring/fastspring-api/accounts  Account details
+     * @see https://docs.fastspring.com/integrating-with-fastspring/fastspring-api/accounts Account details
      *
      * @return object Response of fastspring
      */
@@ -192,7 +194,7 @@ class ApiClient
      * @param string $fastspringId Fastspring ID of related account
      * @param array  $account      Account details
      *
-     * @see https://docs.fastspring.com/integrating-with-fastspring/fastspring-api/accounts  Account details
+     * @see https://docs.fastspring.com/integrating-with-fastspring/fastspring-api/accounts Account details
      *
      * @return object Response of fastspring
      */
@@ -231,7 +233,7 @@ class ApiClient
      *
      * @param array $session Sessions details
      *
-     * @see https://docs.fastspring.com/integrating-with-fastspring/fastspring-api/sessions  Session details
+     * @see https://docs.fastspring.com/integrating-with-fastspring/fastspring-api/sessions Session details
      *
      * @return object Response of fastspring
      */
@@ -289,7 +291,8 @@ class ApiClient
     /**
      * Update subscriptions.
      *
-     * @param array $subscriptions Data of all subscriptions wanted to be updated (should include subscription => $id)
+     * @param array $subscriptions Data of all subscriptions wanted to be
+     *                             updated (should include subscription => $id)
      *
      * @see https://docs.fastspring.com/integrating-with-fastspring/fastspring-api/subscriptions#id-/subscriptions-Updateexistingsubscriptioninstances
      *
@@ -306,7 +309,8 @@ class ApiClient
      * Cancel subscription.
      *
      * @param string|int $subscriptionId ID of the subscription
-     * @param array      $parameters     Query Parameters for example to delete immediately pass ['billingPeriod' => 0]
+     * @param array      $parameters     Query Parameters for example to delete
+     *                                   immediately pass ['billingPeriod' => 0]
      *
      * @return object Response of fastspring
      */

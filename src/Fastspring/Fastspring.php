@@ -1,15 +1,20 @@
 <?php
-
+/**
+ * This class helps to reach the Fastspring class with Laravel config and static
+ * methods.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @version   0.1:
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @see       https://docs.fastspring.com/integrating-with-fastspring/fastspring-api
+ */
 namespace TwentyTwoDigital\CashierFastspring\Fastspring;
 
 /**
- * This class helps to reach Fastspring class with laravel config and static methods.
+ * This class describes the Fastspring implementation.
  *
- * @author   Bilal Gultekin <bilal@gultekin.me>
- *
- * @version  0.1
- *
- * @see      https://docs.fastspring.com/integrating-with-fastspring/fastspring-api
+ * {@inheritDoc}
  */
 class Fastspring
 {
@@ -21,13 +26,19 @@ class Fastspring
     public static $instance;
 
     /**
-     * It is not useful to construct this Fastspring class everytime.
-     * This helps to construct this class with the current config.
+     * Static method.
+     *
+     * It is not useful to construct this Fastspring class everytime. This helps
+     * to construct this class with the current config. if there is not any
+     * constructed instance then construct and save it to self::$instance
+     *
+     * @param string $method     The method
+     * @param array  $parameters The parameters for username and password
+     *
+     * @return self
      */
     public static function __callStatic($method, $parameters)
     {
-        // if there is not any constructed instance
-        // construct and save it to self::$instance
         if (!self::$instance) {
             $username = (getenv('FASTSPRING_USERNAME') ?: config('services.fastspring.username'));
             $password = (getenv('FASTSPRING_PASSWORD') ?: config('services.fastspring.password'));

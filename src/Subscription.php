@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * This file implements a Subscription.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring;
 
 use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
@@ -8,6 +16,11 @@ use Exception;
 use Illuminate\Database\Eloquent\Model;
 use LogicException;
 
+/**
+ * This class describes a subscription.
+ *
+ * {@inheritDoc}
+ */
 class Subscription extends Model
 {
     /**

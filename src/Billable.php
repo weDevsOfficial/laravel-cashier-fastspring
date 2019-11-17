@@ -1,21 +1,33 @@
 <?php
-
+/**
+ * This file implements Billable.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring;
 
 use TwentyTwoDigital\CashierFastspring\Exceptions\NotImplementedException;
 use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 use Exception;
 
+/**
+ * Billable trait.
+ *
+ * {@inheritDoc}
+ */
 trait Billable
 {
     /**
      * Make a "one off" charge on the customer for the given amount.
      *
-     * @param int   $amount
-     * @param array $options
+     * @param int   $amount  The amount to charge
+     * @param array $options Array of options
      *
-     * @throws \InvalidArgumentException
-     * @throws Exceptions\NotImplementedException
+     * @throws \TwentyTwoDigital\CashierFastspring\Exceptions\NotImplementedException
      */
     public function charge($amount, array $options = [])
     {
@@ -25,11 +37,10 @@ trait Billable
     /**
      * Refund a customer for a charge.
      *
-     * @param string $charge
-     * @param array  $options
+     * @param string $charge  The amount to refund
+     * @param array  $options Array of options
      *
-     * @throws \InvalidArgumentException
-     * @throws Exceptions\NotImplementedException
+     * @throws \TwentyTwoDigital\CashierFastspring\Exceptions\NotImplementedException
      */
     public function refund($charge, array $options = [])
     {
@@ -39,8 +50,8 @@ trait Billable
     /**
      * Begin creating a new subscription.
      *
-     * @param string $subscription
-     * @param string $plan
+     * @param string $subscription Subscription name
+     * @param string $plan         The plan name
      *
      * @return \TwentyTwoDigital\CashierFastspring\SubscriptionBuilder
      */
@@ -52,8 +63,8 @@ trait Billable
     /**
      * Determine if the subscription is on trial.
      *
-     * @param string      $subscription
-     * @param string|null $plan
+     * @param string      $subscription Subscription name
+     * @param string|null $plan         Plan name
      *
      * @return bool
      */
@@ -72,8 +83,8 @@ trait Billable
     /**
      * Determine if the model has a given subscription.
      *
-     * @param string      $subscription
-     * @param string|null $plan
+     * @param string      $subscription Subscription name
+     * @param string|null $plan         Plan name
      *
      * @return bool
      */
@@ -131,8 +142,8 @@ trait Billable
     /**
      * Determine if the model is actively subscribed to one of the given plans.
      *
-     * @param array|string $plans
-     * @param string       $subscription
+     * @param string|null $plans        Plan name
+     * @param string      $subscription Subscription name
      *
      * @return bool
      */
@@ -156,7 +167,7 @@ trait Billable
     /**
      * Determine if the entity is on the given plan.
      *
-     * @param string $plan
+     * @param string $plan Plan name
      *
      * @return bool
      */
@@ -180,7 +191,7 @@ trait Billable
     /**
      * Generate authenticated url of fastspring account management panel.
      *
-     * @return bool
+     * @return \TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring
      */
     public function accountManagementURI()
     {
@@ -192,9 +203,9 @@ trait Billable
     /**
      * Create a Fastspring customer for the given user model.
      *
-     * @param array $options
+     * @param array $options Options array of customer information
      *
-     * @return object
+     * @return \TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring
      */
     public function createAsFastspringCustomer(array $options = [])
     {
@@ -223,16 +234,16 @@ trait Billable
     }
 
     /**
-     * Update the related account on the Fastspring-side the given user model.
+     * Update the related account on Fastspring, given user-model.
      *
-     * @param array $options
+     * @param array $options array of customer information
+     *
+     * @throws Exception No valid Fastspring ID
      *
      * @return object
      */
     public function updateAsFastspringCustomer(array $options = [])
     {
-        // check the fastspring_id first
-        // if there is non, no need to try
         if (!$this->hasFastspringId()) {
             throw new Exception('User has no fastspring_id');
         }
@@ -257,6 +268,8 @@ trait Billable
 
     /**
      * Get the Fastspring customer for the model.
+     *
+     * @throws Exception No valid Fastspring ID
      *
      * @return object
      */

@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * This file implements Webhook Controller.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring\Http\Controllers;
 
 use TwentyTwoDigital\CashierFastspring\Events;
@@ -12,6 +20,12 @@ use Illuminate\Support\Str;
 use Log;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Controls the data flow into a webhook object and updates the view
+ * whenever data changes.
+ *
+ * {@inheritDoc}
+ */
 class WebhookController extends Controller
 {
     /**
