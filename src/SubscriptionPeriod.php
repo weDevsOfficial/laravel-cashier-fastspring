@@ -8,6 +8,7 @@
  * @license   MIT
  * @since     v0.1
  */
+
 namespace TwentyTwoDigital\CashierFastspring;
 
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * This class describes a subscription period.
  *
- * {@inheritDoc}
+ * {@inheritdoc}
  */
 class SubscriptionPeriod extends Model
 {

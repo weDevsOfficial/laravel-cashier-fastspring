@@ -11,6 +11,7 @@
  * @license   MIT
  * @since     v0.1
  */
+
 namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
 use TwentyTwoDigital\CashierFastspring\Events;
@@ -22,7 +23,7 @@ use TwentyTwoDigital\CashierFastspring\Invoice;
  * Note: "order.completed" event is works just at creation for subscription products.
  * IMPORTANT: This class handles expansion enabled webhooks
  *
- * {@inheritDoc}
+ * {@inheritdoc}
  */
 class OrderCompleted extends Base
 {

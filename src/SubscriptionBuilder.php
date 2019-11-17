@@ -8,15 +8,14 @@
  * @license   MIT
  * @since     v0.1
  */
+
 namespace TwentyTwoDigital\CashierFastspring;
 
-use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 use GuzzleHttp\Exception\ClientException;
+use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 
 /**
  * Front-end to create subscription objects step by step.
- *
- * {@inheritDoc}
  */
 class SubscriptionBuilder
 {
@@ -125,7 +124,7 @@ class SubscriptionBuilder
      */
     protected function getFastspringIdOfCustomer()
     {
-        if (!$this->owner->fastspring_id) {
+        if (! $this->owner->fastspring_id) {
             try {
                 $customer = $this->owner->createAsFastspringCustomer();
             } catch (ClientException $e) {

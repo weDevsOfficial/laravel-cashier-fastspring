@@ -8,18 +8,19 @@
  * @license   MIT
  * @since     v0.1
  */
+
 namespace TwentyTwoDigital\CashierFastspring;
 
-use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use LogicException;
+use TwentyTwoDigital\CashierFastspring\Fastspring\Fastspring;
 
 /**
  * This class describes a subscription.
  *
- * {@inheritDoc}
+ * {@inheritdoc}
  */
 class Subscription extends Model
 {
@@ -229,7 +230,7 @@ class Subscription extends Model
             ];
 
             $lastPeriod = SubscriptionPeriod::firstOrCreate($subscriptionPeriodData);
-        } while (!($today->greaterThanOrEqualTo($lastPeriod->start_date)
+        } while (! ($today->greaterThanOrEqualTo($lastPeriod->start_date)
             && $today->lessThanOrEqualTo($lastPeriod->end_date)
         ));
 
@@ -259,7 +260,7 @@ class Subscription extends Model
      */
     public function valid()
     {
-        return !$this->deactivated();
+        return ! $this->deactivated();
     }
 
     /**
@@ -498,7 +499,7 @@ class Subscription extends Model
      */
     public function resume()
     {
-        if (!$this->onGracePeriod()) {
+        if (! $this->onGracePeriod()) {
             throw new LogicException('Unable to resume subscription that is not within grace period or not canceled.');
         }
 

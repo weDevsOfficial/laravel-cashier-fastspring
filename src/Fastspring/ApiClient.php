@@ -20,14 +20,13 @@
  * @license   MIT
  * @see       https://docs.fastspring.com/integrating-with-fastspring/fastspring-api
  */
+
 namespace TwentyTwoDigital\CashierFastspring\Fastspring;
 
 use GuzzleHttp\Client;
 
 /**
  * This class describes an api client.
- *
- * {@inheritDoc}
  */
 class ApiClient
 {

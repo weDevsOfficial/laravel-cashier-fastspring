@@ -9,12 +9,11 @@
  * @license   MIT
  * @see       https://docs.fastspring.com/integrating-with-fastspring/fastspring-api
  */
+
 namespace TwentyTwoDigital\CashierFastspring\Fastspring;
 
 /**
  * This class describes the Fastspring implementation.
- *
- * {@inheritDoc}
  */
 class Fastspring
 {
@@ -39,7 +38,7 @@ class Fastspring
      */
     public static function __callStatic($method, $parameters)
     {
-        if (!self::$instance) {
+        if (! self::$instance) {
             $username = (getenv('FASTSPRING_USERNAME') ?: config('services.fastspring.username'));
             $password = (getenv('FASTSPRING_PASSWORD') ?: config('services.fastspring.password'));
 

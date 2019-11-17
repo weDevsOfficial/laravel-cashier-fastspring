@@ -6,6 +6,7 @@
  * @copyright 2019 22 Digital
  * @since     v0.1
  */
+
 namespace TwentyTwoDigital\CashierFastspring\Exceptions;
 
 use BadMethodCallException;

@@ -8,6 +8,7 @@
  * @license   MIT
  * @since     v0.1
  */
+
 namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
 use TwentyTwoDigital\CashierFastspring\Events;
@@ -17,7 +18,7 @@ use TwentyTwoDigital\CashierFastspring\Subscription;
  * This class is a listener for subscription deactivation events.
  * It deactivated fastspring subscription and create another local, free one.
  *
- * {@inheritDoc}
+ * {@inheritdoc}
  */
 class SubscriptionDeactivated extends Base
 {

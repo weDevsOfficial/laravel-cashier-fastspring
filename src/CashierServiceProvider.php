@@ -6,6 +6,7 @@
  * @copyright 2019 22 Digital
  * @since     v0.1
  */
+
 namespace TwentyTwoDigital\CashierFastspring;
 
 use Illuminate\Support\ServiceProvider;
@@ -13,7 +14,7 @@ use Illuminate\Support\ServiceProvider;
 /**
  * This class describes the Laravel Cashier Service Provider.
  *
- * {@inheritDoc}
+ * {@inheritdoc}
  */
 class CashierServiceProvider extends ServiceProvider
 {

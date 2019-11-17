@@ -8,12 +8,11 @@
  * @license   MIT
  * @since     v0.1
  */
+
 namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
 /**
  * This class describes a base.
- *
- * {@inheritDoc}
  */
 class Base
 {

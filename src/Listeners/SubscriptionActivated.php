@@ -26,7 +26,7 @@ use TwentyTwoDigital\CashierFastspring\SubscriptionPeriod;
  *
  * IMPORTANT: This class handles expansion enabled webhooks.
  *
- * {@inheritDoc}
+ * {@inheritdoc}
  */
 class SubscriptionActivated extends Base
 {
@@ -57,7 +57,7 @@ class SubscriptionActivated extends Base
 
         $subscription = $user->subscription();
 
-        if (!$subscription) {
+        if (! $subscription) {
             $subscription = new Subscription();
             $subscription->user_id = $user->id;
             $subscription->name = $subscriptionName;

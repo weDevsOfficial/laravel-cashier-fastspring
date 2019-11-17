@@ -8,6 +8,7 @@
  * @license   MIT
  * @since     v0.1
  */
+
 namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
 use TwentyTwoDigital\CashierFastspring\Events;
@@ -22,7 +23,7 @@ use TwentyTwoDigital\CashierFastspring\Subscription;
  *
  * IMPORTANT: This class handles expansion enabled webhooks.
  *
- * {@inheritDoc}
+ * {@inheritdoc}
  */
 class SubscriptionStateChanged extends Base
 {

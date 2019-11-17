@@ -8,6 +8,7 @@
  * @license   MIT
  * @since     v0.1
  */
+
 namespace TwentyTwoDigital\CashierFastspring;
 
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * This class describes an invoice.
  *
- * {@inheritDoc}
+ * {@inheritdoc}
  */
 class Invoice extends Model
 {
