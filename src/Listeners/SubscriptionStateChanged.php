@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * This file implements Subscription State Changed.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
 use TwentyTwoDigital\CashierFastspring\Events;
@@ -13,13 +21,15 @@ use TwentyTwoDigital\CashierFastspring\Subscription;
  * It updates related subscription event.
  *
  * IMPORTANT: This class handles expansion enabled webhooks.
+ *
+ * {@inheritDoc}
  */
 class SubscriptionStateChanged extends Base
 {
     /**
      * Create the event listener.
      *
-     * @return void
+     * @return null
      */
     public function __construct()
     {

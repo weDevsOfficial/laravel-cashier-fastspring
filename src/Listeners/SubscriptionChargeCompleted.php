@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * This file implements Subscription Charge Completed.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
 use TwentyTwoDigital\CashierFastspring\Events;
@@ -14,13 +22,15 @@ use Illuminate\Support\Str;
  * and bill details to your customers.
  *
  * IMPORTANT: This class handles expansion enabled webhooks.
+ *
+ * {@inheritDoc}
  */
 class SubscriptionChargeCompleted extends Base
 {
     /**
      * Create the event listener.
      *
-     * @return void
+     * @return null
      */
     public function __construct()
     {

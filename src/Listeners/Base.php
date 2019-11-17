@@ -1,7 +1,20 @@
 <?php
-
+/**
+ * This file implements Base.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
+/**
+ * This class describes a base.
+ *
+ * {@inheritDoc}
+ */
 class Base
 {
     /**

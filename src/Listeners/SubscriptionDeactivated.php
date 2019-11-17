@@ -1,5 +1,13 @@
 <?php
-
+/**
+ * This file implements Subscription Deactivated.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
 use TwentyTwoDigital\CashierFastspring\Events;
@@ -8,13 +16,15 @@ use TwentyTwoDigital\CashierFastspring\Subscription;
 /**
  * This class is a listener for subscription deactivation events.
  * It deactivated fastspring subscription and create another local, free one.
+ *
+ * {@inheritDoc}
  */
 class SubscriptionDeactivated extends Base
 {
     /**
      * Create the event listener.
      *
-     * @return void
+     * @return null
      */
     public function __construct()
     {

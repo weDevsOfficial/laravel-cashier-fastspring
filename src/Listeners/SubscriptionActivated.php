@@ -1,4 +1,13 @@
 <?php
+/**
+ * This file implements Subscription Activated.
+ *
+ * @author    Bilal Gultekin <bilal@gultekin.me>
+ * @author    Justin Hartman <justin@22digital.co.za>
+ * @copyright 2019 22 Digital
+ * @license   MIT
+ * @since     v0.1
+ */
 
 namespace TwentyTwoDigital\CashierFastspring\Listeners;
 
@@ -7,7 +16,8 @@ use TwentyTwoDigital\CashierFastspring\Subscription;
 use TwentyTwoDigital\CashierFastspring\SubscriptionPeriod;
 
 /**
- * This class is a listener for subscription state change events.
+ * This class describes a subscription activated.
+ *
  * It is planned to listen following fastspring events:
  *  - subscription.canceled
  *  - subscription.deactivated
@@ -15,13 +25,15 @@ use TwentyTwoDigital\CashierFastspring\SubscriptionPeriod;
  * It updates related subscription event.
  *
  * IMPORTANT: This class handles expansion enabled webhooks.
+ *
+ * {@inheritDoc}
  */
 class SubscriptionActivated extends Base
 {
     /**
      * Create the event listener.
      *
-     * @return void
+     * @return null
      */
     public function __construct()
     {
