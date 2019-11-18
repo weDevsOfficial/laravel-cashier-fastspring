@@ -1,11 +1,11 @@
 # Laravel Cashier Fastspring ![Beta](https://img.shields.io/badge/status-beta-red.svg)
 
-[badge_packagist]:      https://img.shields.io/badge/packagist-22digital/laravel--cashier--fastspring-yellow.svg
+[badge_packagist]:      https://img.shields.io/badge/packagist-22digital/laravel--cashier--fastspring-f28d1a.svg
 [badge_release]:        https://img.shields.io/packagist/v/22digital/laravel-cashier-fastspring.svg
 [badge_license]:        https://img.shields.io/github/license/22digital/laravel-cashier-fastspring.svg
 [badge_coverage]:       https://scrutinizer-ci.com/g/22digital/laravel-cashier-fastspring/badges/coverage.png?b=master
 [badge_build]:          https://scrutinizer-ci.com/g/22digital/laravel-cashier-fastspring/badges/build.png?b=master
-[badge_laravel]:        https://img.shields.io/badge/Laravel-5.x-orange.svg
+[badge_laravel]:        https://img.shields.io/badge/Laravel-5.x--6.x-orange.svg
 [badge_styleci]:        https://github.styleci.io/repos/219102431/shield?branch=master
 [badge_travis]:         https://travis-ci.org/22digital/laravel-cashier-fastspring.svg?branch=master
 

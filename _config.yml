@@ -1,1 +1,3 @@
 theme: jekyll-theme-leap-day
+title: Laravel Fastspring Cashier Package
+description: Laravel Cashier Fastspring is a cashier-like Laravel package which provides an interface to the Fastspring subscription and payment services.
