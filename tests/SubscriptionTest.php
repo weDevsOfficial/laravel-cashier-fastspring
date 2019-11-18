@@ -70,6 +70,26 @@ class SubscriptionTest extends TestCase
         $this->assertEquals($subscription->periods[1]->id, $period2->id);
     }
 
+    public function testActiveLocalPeriod()
+    {
+        $today = Carbon::today()->format('Y-m-d');
+
+        $user = $this->createUser(['email' => 'bilal@gultekin.me', 'fastspring_id' => 'fastspring_id']);
+        $subscription = $this->createSubscription($user, ['state' => 'active']);
+
+        $activePeriod = $this->createSubscriptionPeriod($subscription, [
+            'subscription_id' => 'fastspring_id',
+            'start_date' => $today,
+            'end_date' => $today,
+            'type' => 'local'
+        ]);
+
+        $this->assertNotNull($activePeriod);
+        $this->assertNotNull($subscription);
+        $this->assertEquals($activePeriod['subscription_id'], $activePeriod->id);
+        $this->assertEquals($subscription->id, $activePeriod->id);
+    }
+
     public function testActivePeriodOrCreateWhileThereIsOne()
     {
         $user = $this->createUser(['email' => 'bilal@gultekin.me', 'fastspring_id' => 'fastspring_id']);
@@ -222,15 +242,17 @@ class SubscriptionTest extends TestCase
         $user = $this->createUser(['email' => 'bilal@gultekin.me', 'fastspring_id' => 'fastspring_id']);
         $subscription = $this->createSubscription($user, [
             'state'         => 'active',
+            'interval_unit' => 'none',
             'fastspring_id' => null,
-            'interval_unit' => 'martian-second',
         ]);
 
-        if ($activePeriod) {
-            return $activePeriod;
-        }
+        // create a period
+        $lastCreatedPeriod = $this->createSubscriptionPeriod($subscription, [
+            'start_date' => Carbon::now()->subDays(465)->format('Y-m-d'),
+            'end_date'   => Carbon::now()->subDays(100)->format('Y-m-d'),
+        ]);
 
-        $activePeriod = $subscription->activePeriodOrCreate();
+        $lastPeriod = $subscription->activePeriodOrCreate();
     }
 
     public function testActiveSubscription()
@@ -356,6 +378,37 @@ class SubscriptionTest extends TestCase
         $this->assertEquals($subscription->swap_at->format('Y-m-d'), $endDate);
     }
 
+    public function testSwapException()
+    {
+        $this->expectException(\Exception::class);
+
+        $this->setMockResponsesAndHistory([
+            new Response(200, [], json_encode([
+                'subscriptions' => [
+                    [
+                        'subscription' => 'fastspring_id',
+                        'result'       => 'error',
+                    ],
+                ],
+            ])),
+            new Response(200, [], json_encode([
+                [
+                    'beginPeriodDate' => Carbon::now()->subDays(14)->format('Y-m-d'),
+                    'endPeriodDate'   => $endDate,
+                ],
+            ])),
+        ]);
+
+        $user = $this->createUser([
+            'fastspring_id' => 'fastspring_id',
+        ]);
+
+        $subscription = $this->createSubscription($user, ['fastspring_id' => 'fastspring_id']);
+
+        $subscription->swap('new_plan', false);
+        $activePeriod = $subscription->activePeriodOrCreate();
+    }
+
     public function testCancel()
     {
         $endDate = Carbon::now()->addDays(16)->format('Y-m-d');
@@ -388,6 +441,38 @@ class SubscriptionTest extends TestCase
         $this->assertEquals($subscription->swap_at->format('Y-m-d'), $endDate);
     }
 
+    public function testCancelException()
+    {
+        $this->expectException(\Exception::class);
+
+        $endDate = Carbon::now()->addDays(16)->format('Y-m-d');
+
+        $this->setMockResponsesAndHistory([
+            new Response(200, [], json_encode([
+                'subscriptions' => [
+                    [
+                        'subscription' => 'fastspring_id',
+                        'result'       => 'error',
+                    ],
+                ],
+            ])),
+            new Response(200, [], json_encode([
+                [
+                    'beginPeriodDate' => Carbon::now()->subDays(14)->format('Y-m-d'),
+                    'endPeriodDate'   => $endDate,
+                ],
+            ])),
+        ]);
+
+        $user = $this->createUser([
+            'fastspring_id' => 'fastspring_id',
+        ]);
+
+        $subscription = $this->createSubscription($user, ['fastspring_id' => 'fastspring_id']);
+
+        $subscription->cancel();
+    }
+
     public function testCancelNow()
     {
         $this->setMockResponsesAndHistory([
@@ -409,6 +494,30 @@ class SubscriptionTest extends TestCase
 
         $subscription->cancelNow();
         $this->assertEquals($subscription->state, 'deactivated');
+    }
+
+    public function testCancelNowException()
+    {
+        $this->expectException(\Exception::class);
+
+        $this->setMockResponsesAndHistory([
+            new Response(200, [], json_encode([
+                'subscriptions' => [
+                    [
+                        'subscription' => 'fastspring_id',
+                        'result'       => 'error',
+                    ],
+                ],
+            ])),
+        ]);
+
+        $user = $this->createUser([
+            'fastspring_id' => 'fastspring_id',
+        ]);
+
+        $subscription = $this->createSubscription($user, ['fastspring_id' => 'fastspring_id']);
+
+        $subscription->cancelNow();
     }
 
     public function testResume()
@@ -457,6 +566,30 @@ class SubscriptionTest extends TestCase
         $response = $subscription->resume();
         $this->assertInternalType('object', $response);
         $this->assertObjectHasAttribute('subscription', $response->subscriptions[0]);
+    }
+
+    public function testResumeException()
+    {
+        $this->expectException(\Exception::class);
+
+        $this->setMockResponsesAndHistory([
+            new Response(200, [], json_encode([
+                'subscriptions' => [
+                    [
+                        'subscription' => 'fastspring_id',
+                        'result'       => 'error',
+                    ],
+                ],
+            ])),
+        ]);
+
+        $user = $this->createUser([
+            'fastspring_id' => 'fastspring_id',
+        ]);
+
+        $subscription = $this->createSubscription($user, ['fastspring_id' => 'fastspring_id', 'state' => 'canceled']);
+
+        $subscription->resume();
     }
 
     public function testType()
