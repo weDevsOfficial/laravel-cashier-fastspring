@@ -219,7 +219,7 @@ class Subscription extends Model
                     break;
 
                 default:
-                    throw new Exception('Unexcepted interval unit: '.$subscription->interval_unit);
+                    throw new Exception('Unexcepted interval unit: ' . $subscription->interval_unit);
             }
 
             $subscriptionPeriodData = [
@@ -230,7 +230,7 @@ class Subscription extends Model
             ];
 
             $lastPeriod = SubscriptionPeriod::firstOrCreate($subscriptionPeriodData);
-        } while (! ($today->greaterThanOrEqualTo($lastPeriod->start_date)
+        } while (!($today->greaterThanOrEqualTo($lastPeriod->start_date)
             && $today->lessThanOrEqualTo($lastPeriod->end_date)
         ));
 
@@ -260,7 +260,7 @@ class Subscription extends Model
      */
     public function valid()
     {
-        return ! $this->deactivated();
+        return !$this->deactivated();
     }
 
     /**
@@ -436,7 +436,7 @@ class Subscription extends Model
 
         // else
         // TODO: it might be better to create custom exception
-        throw new Exception('Swap operation failed. Response: '.json_encode($response));
+        throw new Exception('Swap operation failed. Response: ' . json_encode($response));
     }
 
     /**
@@ -462,7 +462,7 @@ class Subscription extends Model
 
         // else
         // TODO: it might be better to create custom exception
-        throw new Exception('Cancel operation failed. Response: '.json_encode($response));
+        throw new Exception('Cancel operation failed. Response: ' . json_encode($response));
     }
 
     /**
@@ -486,7 +486,7 @@ class Subscription extends Model
 
         // else
         // TODO: it might be better to create custom exception
-        throw new Exception('CancelNow operation failed. Response: '.json_encode($response));
+        throw new Exception('CancelNow operation failed. Response: ' . json_encode($response));
     }
 
     /**
@@ -499,7 +499,7 @@ class Subscription extends Model
      */
     public function resume()
     {
-        if (! $this->onGracePeriod()) {
+        if (!$this->onGracePeriod()) {
             throw new LogicException('Unable to resume subscription that is not within grace period or not canceled.');
         }
 
@@ -520,6 +520,6 @@ class Subscription extends Model
 
         // else
         // TODO: it might be better to create custom exception
-        throw new Exception('Resume operation failed. Response: '.json_encode($response));
+        throw new Exception('Resume operation failed. Response: ' . json_encode($response));
     }
 }

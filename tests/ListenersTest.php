@@ -19,7 +19,7 @@ class ListenersTest extends TestCase
 
     public static function setUpBeforeClass()
     {
-        if (file_exists(__DIR__.'/.env')) {
+        if (file_exists(__DIR__ . '/.env')) {
             $dotenv = \Dotenv\Dotenv::create(__DIR__);
             $dotenv->load();
         }
@@ -133,7 +133,7 @@ class ListenersTest extends TestCase
      */
     protected function payloadOfSubscriptionCanceled($subscriptionId, $accountId)
     {
-        $template = file_get_contents(__DIR__.'/Payloads/subscription_canceled.json');
+        $template = file_get_contents(__DIR__ . '/Payloads/subscription_canceled.json');
         $jsonString = $this->renderTemplate(
             $template,
             ['subscriptionId' => $subscriptionId, 'accountId' => $accountId]
@@ -144,7 +144,7 @@ class ListenersTest extends TestCase
 
     protected function payloadOfSubscriptionActivated($accountId)
     {
-        $template = file_get_contents(__DIR__.'/Payloads/subscription_activated.json');
+        $template = file_get_contents(__DIR__ . '/Payloads/subscription_activated.json');
         $jsonString = $this->renderTemplate($template, ['accountId' => $accountId]);
 
         return json_decode($jsonString, true);
@@ -152,7 +152,7 @@ class ListenersTest extends TestCase
 
     protected function payloadOfSubscriptionDeactivated($accountId, $subscriptionId)
     {
-        $template = file_get_contents(__DIR__.'/Payloads/subscription_deactivated.json');
+        $template = file_get_contents(__DIR__ . '/Payloads/subscription_deactivated.json');
         $jsonString = $this->renderTemplate($template, [
             'accountId'      => $accountId,
             'subscriptionId' => $subscriptionId,
@@ -163,7 +163,7 @@ class ListenersTest extends TestCase
 
     protected function payloadOfSubscriptionChargeCompleted($subscriptionId, $accountId)
     {
-        $template = file_get_contents(__DIR__.'/Payloads/subscription_charge_completed.json');
+        $template = file_get_contents(__DIR__ . '/Payloads/subscription_charge_completed.json');
         $jsonString = $this->renderTemplate(
             $template,
             ['subscriptionId' => $subscriptionId, 'accountId' => $accountId]
@@ -174,7 +174,7 @@ class ListenersTest extends TestCase
 
     protected function payloadOfOrderCompleted($accountId)
     {
-        $template = file_get_contents(__DIR__.'/Payloads/order_completed.json');
+        $template = file_get_contents(__DIR__ . '/Payloads/order_completed.json');
         $jsonString = $this->renderTemplate($template, ['accountId' => $accountId]);
 
         return json_decode($jsonString, true);
@@ -188,7 +188,7 @@ class ListenersTest extends TestCase
         $patterns = [];
 
         foreach ($dataKeys as $dataKey) {
-            $patterns[] = '/{'.$dataKey.'}/';
+            $patterns[] = '/{' . $dataKey . '}/';
         }
 
         return preg_replace($patterns, $replacements, $template);

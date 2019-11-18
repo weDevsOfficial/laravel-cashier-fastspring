@@ -25,7 +25,7 @@ class CashierFastspringTest extends TestCase
 
     public static function setUpBeforeClass()
     {
-        if (file_exists(__DIR__.'/.env')) {
+        if (file_exists(__DIR__ . '/.env')) {
             $dotenv = \Dotenv\Dotenv::create(__DIR__);
             $dotenv->load();
         }

@@ -71,11 +71,11 @@ class WebhookController extends Controller
             // prepare category event class names like OrderAny
             $explodedType = explode('.', $event['type']);
             $category = array_shift($explodedType);
-            $categoryEvent = '\TwentyTwoDigital\CashierFastspring\Events\\'.Str::studly($category).'Any';
+            $categoryEvent = '\TwentyTwoDigital\CashierFastspring\Events\\' . Str::studly($category) . 'Any';
 
             // prepare category event class names like activity
             $activity = str_replace('.', ' ', $event['type']);
-            $activityEvent = '\TwentyTwoDigital\CashierFastspring\Events\\'.Str::studly($activity);
+            $activityEvent = '\TwentyTwoDigital\CashierFastspring\Events\\' . Str::studly($activity);
 
             // there may be some exceptions on events
             // so if anything goes bad its ID won't be added on the successfullEvents
@@ -84,8 +84,8 @@ class WebhookController extends Controller
             try {
                 // check if the related event classes are exist
                 // there may be not handled events
-                if (! class_exists($categoryEvent) || ! class_exists($activityEvent)) {
-                    throw new Exception('There is no event for '.$event['type']);
+                if (!class_exists($categoryEvent) || !class_exists($activityEvent)) {
+                    throw new Exception('There is no event for ' . $event['type']);
                 }
 
                 // trigger events

@@ -19,7 +19,7 @@ class WebhookControllerTest extends TestCase
      */
     public static function setUpBeforeClass()
     {
-        if (file_exists(__DIR__.'/.env')) {
+        if (file_exists(__DIR__ . '/.env')) {
             $dotenv = \Dotenv\Dotenv::create(__DIR__);
             $dotenv->load();
         }
@@ -198,7 +198,7 @@ class WebhookControllerTest extends TestCase
 
         foreach ($webhookEvents as $key => $webhookEvent) {
             $mockEvent = [
-                'id'        => 'id-'.$key,
+                'id'        => 'id-' . $key,
                 'live'      => true,
                 'processed' => false,
                 'type'      => $webhookEvent,
@@ -209,11 +209,11 @@ class WebhookControllerTest extends TestCase
             // prepare category event class names like OrderAny
             $explodedType = explode('.', $mockEvent['type']);
             $category = array_shift($explodedType);
-            $categoryEvent = 'TwentyTwoDigital\CashierFastspring\Events\\'.Str::studly($category).'Any';
+            $categoryEvent = 'TwentyTwoDigital\CashierFastspring\Events\\' . Str::studly($category) . 'Any';
 
             // prepare category event class names like activity
             $activity = str_replace('.', ' ', $mockEvent['type']);
-            $activityEvent = 'TwentyTwoDigital\CashierFastspring\Events\\'.Str::studly($activity);
+            $activityEvent = 'TwentyTwoDigital\CashierFastspring\Events\\' . Str::studly($activity);
 
             $listenEvents = [
                 Events\Any::class,

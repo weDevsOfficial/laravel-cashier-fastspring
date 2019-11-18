@@ -67,7 +67,7 @@ class SubscriptionChargeCompleted extends Base
         $periodEndDate = $nextDate->subDay()->format('Y-m-d H:i:s');
 
         // yeap, weird way
-        $methodName = 'sub'.Str::title($subscription->interval_unit).'sNoOverflow';
+        $methodName = 'sub' . Str::title($subscription->interval_unit) . 'sNoOverflow';
         $periodStartDate = $nextDate->$methodName($subscription->interval_length)->addDay()->format('Y-m-d H:i:s');
 
         // fill the model

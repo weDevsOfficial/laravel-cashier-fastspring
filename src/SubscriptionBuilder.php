@@ -124,7 +124,7 @@ class SubscriptionBuilder
      */
     protected function getFastspringIdOfCustomer()
     {
-        if (! $this->owner->fastspring_id) {
+        if (!$this->owner->fastspring_id) {
             try {
                 $customer = $this->owner->createAsFastspringCustomer();
             } catch (ClientException $e) {
