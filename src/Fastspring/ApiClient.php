@@ -356,7 +356,7 @@ class ApiClient
      * @param int        $quantity       Quantity of the product
      * @param array      $coupons        Coupons wanted to be applied
      *
-     * @return object Response of fastspring
+     * @return object Returns JSON object from the updateSubscriptions method.
      */
     public function swapSubscription($subscriptionId, $newPlan, $prorate, $quantity = 1, $coupons = [])
     {
