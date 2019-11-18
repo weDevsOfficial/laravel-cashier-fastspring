@@ -8,7 +8,7 @@ build:
         override:
           - php-scrutinizer-run
           - command: phpcs-run
-            use_website_config: true
+            use_website_config: false
     tests: true
     coverage:
       tests:
