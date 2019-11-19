@@ -90,8 +90,8 @@ class ApiClient
      * @param string $method         Method of HTTP request like PUT, GET, POST
      * @param string $path           Path of API
      * @param array  $query          Query parameters array
-     * @param string $formParameters Form parameters
-     * @param string $jsonPayload    Json payload
+     * @param array  $formParameters Form parameters
+     * @param array  $jsonPayload    Json payload
      *
      * @return \GuzzleHttp\Psr7\Response
      */
