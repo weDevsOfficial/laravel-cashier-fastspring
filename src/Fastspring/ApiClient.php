@@ -89,7 +89,7 @@ class ApiClient
      *
      * @param string $method         Method of HTTP request like PUT, GET, POST
      * @param string $path           Path of API
-     * @param string $query          Query parameters
+     * @param array  $query          Query parameters array
      * @param string $formParameters Form parameters
      * @param string $jsonPayload    Json payload
      *
