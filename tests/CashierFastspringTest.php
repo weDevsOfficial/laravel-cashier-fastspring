@@ -128,8 +128,8 @@ class CashierFastspringTest extends TestCase
                 ],
             ])),
             new Response(200, [], json_encode(['accounts' => [
-                    ['id' => 'fastspring_id'],
-                ],
+                ['id' => 'fastspring_id'],
+            ],
             ])),
             new Response(200, [], json_encode(['hello' => 'world'])),
         ]);

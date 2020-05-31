@@ -81,7 +81,7 @@ class SubscriptionTest extends TestCase
             'subscription_id' => 'fastspring_id',
             'start_date' => $today,
             'end_date' => $today,
-            'type' => 'local'
+            'type' => 'local',
         ]);
 
         $this->assertNotNull($activePeriod);
