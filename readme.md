@@ -1,5 +1,6 @@
 # Laravel Cashier Fastspring ![Beta](https://img.shields.io/badge/status-beta-red.svg)
 
+[hero]:                 /docs/images/hero-small.png
 [badge_packagist]:      https://img.shields.io/badge/packagist-22digital/laravel--cashier--fastspring-f28d1a.svg
 [badge_release]:        https://img.shields.io/packagist/v/22digital/laravel-cashier-fastspring.svg
 [badge_license]:        https://img.shields.io/github/license/22digital/laravel-cashier-fastspring.svg
@@ -18,7 +19,6 @@
 [link-styleci]:         https://github.styleci.io/repos/219102431
 [link-travis]:          https://travis-ci.org/22digital/laravel-cashier-fastspring
 
-
 [![Packagist][badge_packagist]][link-packagist]
 [![Build Status][badge_build]][link-build]
 [![Coverage Status][badge_coverage]][link-coverage]
@@ -26,6 +26,7 @@
 [![Laravel 5][badge_laravel]][link-laravel]
 [![License][badge_license]][link-license]
 
+![Laravel Cashier Fastspring][hero]
 
 ## Table of contents
 - [Introduction](#introduction)
@@ -398,3 +399,4 @@ Cashier Fastspring package is developed by Bilal Gultekin over Taylor Otwell's C
 ## License
 
 Cashier Fastspring is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+[/docs/images/hero-small.png]: 
