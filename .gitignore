@@ -9,4 +9,5 @@ coverage
 .test
 tests.md
 patch-changes.md
-docs/
+/docs/images/**
+!/docs/images/hero-small.png
